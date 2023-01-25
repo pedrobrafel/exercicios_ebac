@@ -3,34 +3,24 @@
             Funcionalidade: Checkout
 
             Como cliente da EBAC-SHOP
-            Quero fazer concluir meu cadastro
+            Quero concluir meu cadastro
             Para finalizar minha compra
-
-
-            Contexto:
-            Dado que eu esteja de checkout
+            
 
             Cenário: Campos obrigatórios
-            Quando eu não preencher o endereço
-            E finalizar a compra
-            Então deve exibir um alerta "Preencha os campos obrigatórios*"
 
-            Esquema do Cenário: Prencher o cadastro e finalizar compra
-            Quando eu preencher a identificação com <nome> <sobrenome>
-            E o endereço <endereco>,<cidade>,<cep>
-            E o telefone <telefone>
-            E o email <email>
-            E eu finalizar a compra
-            Então deve exibir um alerta <mensagem>
-            Exemplos:
-            | nome   | sobrenome | endereco            | cidade      | cep         | telefone      | email              | mensagem                           |
-            | "João" | "Filho"   | "Rua de ninguem, 0" | "São Paulo" | "abcdef"    | "11999999999" | "meumail@mail.com" | "Digite um CEP válido"             |
-            | "João" | "Filho"   | "Rua de ninguem, 0" | "São Paulo" | "01100-000" | "11999999999" | "@mail.com"        | "Digite um E-mail válido"          |
-            | ""     | "Filho"   | "Rua de ninguem, 0" | "São Paulo" | "01100-000" | "11999999999" | "meumail@mail.com" | "Preencha os campos obrigatórios*" |
-            | "João" | ""        | "Rua de ninguem, 0" | "São Paulo" | "01100-000" | "11999999999" | "meumail@mail.com" | "Preencha os campos obrigatórios*" |
-            | "João" | "Filho"   | ""                  | "São Paulo" | "01100-000" | "11999999999" | "meumail@mail.com" | "Preencha os campos obrigatórios*" |
-            | "João" | "Filho"   | "Rua de ninguem, 0" | ""          | "01100-000" | "11999999999" | "meumail@mail.com" | "Preencha os campos obrigatórios*" |
-            | "João" | "Filho"   | "Rua de ninguem, 0" | "São Paulo" | ""          | "11999999999" | "meumail@mail.com" | "Preencha os campos obrigatórios*" |
-            | "João" | "Filho"   | "Rua de ninguem, 0" | "São Paulo" | "01100-000" | ""            | "meumail@mail.com" | "Preencha os campos obrigatórios*" |
-            | "João" | "Filho"   | "Rua de ninguem, 0" | "São Paulo" | "01100-000" | "11999999999" | ""                 | "Preencha os campos obrigatórios*" |
-            | "João" | "Filho"   | "Rua de ninguem, 0" | "São Paulo" | "01100-000" | "11999999999" | "meumail@mail.com" | "Cadastro concluído!"              |
+            Dado que eu esteja na tela de cadastro
+            Quando eu não preencher algum campo obrigatório
+            Então deve exibir um alerta "Preencha o(s) campo(s) obrigatório(s)"
+
+
+            Cenário: Prencher o cadastro e finalizar compra
+            
+            Dado que eu esteja na tela de cadastro com os seguinte dados:
+            | nome   | sobrenome | endereco            | cidade             | cep         | telefone      | email               |
+            | "João" | "Filho"   | "Rua de ninguem, 1" | "São Paulo"        | "01100-001" | "11999999991" | "meumail1@mail.com" |
+            | "Joao" | "Neto"    | "Rua de ninguem, 2" | "Belo Horizonte"   | "30100-002" | "31999999992" | "meumail2@mail.com" |
+            | "João" | "Segundo" | "Rua de ninguem, 3" | "Manaus"           | "27949-003" | "92999999993" | "meumail3@mail.com" |
+            | "João" | "Terceiro"| "Rua de ninguem, 4" | "Porto Alegre"     | "91910-004" | "51999999994" | "meumail4@mail.com" |
+            Quando eu preencher os campos obrigatórios
+            Então deve exibir um alerta "Cadastro concluído"
