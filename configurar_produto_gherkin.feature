@@ -9,24 +9,18 @@
 
             Contexto:
             Dado que eu esteja na página do produto
-
-            Cenário: Limpar configuração
-            Quando eu selecionar um tamanho
-            E selecionar uma cor
-            E clicar em "Limpar"
+ 
+            Cenário: Campos obrigatórios
+            Quando eu não preencher algum campo obrigatório
+            Então deve exibir um alerta "Selecione uma das opções do produto antes de adicioná-lo ao carrinho."
+  
+            Esquema do Cenário: Limpar configuração
+            Quando eu selecionar <tamanho>, <cor> 
+            E eu clicar em "Limpar"
             Então deve desmarcar as opções
 
-            Esquema do Cenário: Campos obrigatórios
-            Quando eu definir o <tamanho>
-            E a <cor>
-            E a <quantidade>
-            Então deve exibir a <mensagem>
-
             Exemplos:
-            | tamanho | cor    | quantidade | mensagem                                 |
-            | "S"     | "Blue" | 1          | "Adicionado ao carrinho"                 |
-            | ""      | "Blue" | 1          | "Escolha um tamanho"                     |
-            | "S"     | ""     | 1          | "Escolha uma cor"                        |
-            | "S"     | "Blue" | 11         | "Quantidade máxima de produtos excedida" |
-            | "S"     | ""     | 1          | "Escolha um tamanho e uma cor"           |
-
+            | tamanho | cor    |
+            | "S"     | "Blue" | 
+            | "XS"    | "Red"  | 
+           
