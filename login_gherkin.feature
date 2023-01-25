@@ -10,22 +10,19 @@
             Dado que eu esteja na página de login da EBAC-SHOP
 
             Cenário: Login válido
-            Quando eu digitar o usuario "pedro.felix@ebac.com.br"
-            E a senha "pedro@123"
+            Quando eu digitar a credencial "pedro.felix@ebac.com.br" com a senha "pedro@123"
             Então deve redirecionar a tela para a página de checkout
 
 
             Esquema do Cenário: Usuário e/ou senha inválidos
-            Quando eu digitar o usuario <usuario>
-            E a senha <senha>
+            Quando eu digitar a credencial <usuario> com <senha>
             Então deve exibir um alerta <mensagem>
 
             Exemplos:
-            | usuario                   | senha       | mensagem                     |
-            | "pedro.felix@ebac.com.br" | "pedro@321" | "Usuário ou senha inválidos" |
-            | "pedrofelix@ebac.com.br"  | "pedro@123" | "Usuário ou senha inválidos" |
-            | "pedrofelix@ebac.com.br"  | "pedro@321" | "Usuário ou senha inválidos" |
-
+            | usuario                   | senha         | mensagem                     |
+            | "pedro.felix@ebac.com.br" | "pedro@"      | "Usuário ou senha inválidos" |
+            | "pedro@ebac.com.br"       | "pedro@123"   | "Usuário ou senha inválidos" |
+  
 
 
 
